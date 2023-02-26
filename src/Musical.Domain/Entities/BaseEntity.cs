@@ -1,5 +1,6 @@
 ﻿namespace Musical.Domain.Entities;
 
-internal class BaseEntity
+public abstract class BaseEntity
 {
+    public int Id { get; protected set; }
 }
