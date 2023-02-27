@@ -2,6 +2,6 @@
 
 public abstract class BaseAuditableEntity : BaseEntity
 {
-    public required DateTime CreateDate { get; set; }
+    public DateTime CreateDate { get; private set; } = DateTime.Now;
     public DateTime? LastUpdateDate { get; set; }
 }
