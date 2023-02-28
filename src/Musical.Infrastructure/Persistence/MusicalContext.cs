@@ -6,14 +6,14 @@ namespace Musical.Infrastructure.Persistence;
 
 public class MusicalContext : DbContext
 {
-    public DbSet<Artist> Artists => Set<Artist>();
-    public DbSet<Album> Albums => Set<Album>();
+    public DbSet<Artist> Artists { get; set; }
+    public DbSet<Album> Albums { get; set; }
 
     public MusicalContext(DbContextOptions<MusicalContext> options) : base(options) { }
 
-    protected override void OnModelCreating(ModelBuilder builder)
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-        base.OnModelCreating(builder);
+        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        base.OnModelCreating(modelBuilder);
     }
 }
