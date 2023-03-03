@@ -1,6 +1,6 @@
 ﻿namespace Musical.Domain.Entities;
 
-public class Album : BaseAuditableEntity
+public class Album : AuditableEntity
 {
     public required string Title { get; set; }
     public required DateOnly ReleaseDate { get; set; }

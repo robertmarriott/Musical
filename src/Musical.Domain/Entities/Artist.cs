@@ -1,6 +1,6 @@
 ﻿namespace Musical.Domain.Entities;
 
-public class Artist : BaseAuditableEntity
+public class Artist : AuditableEntity
 {
     public required string Name { get; set; }
     public required string Genre { get; set; }
