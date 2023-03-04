@@ -1,4 +1,5 @@
 ﻿using Ardalis.Specification;
+using Ardalis.Specification.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Musical.Domain.Entities;
 using Musical.Domain.Repositories;
@@ -14,12 +15,12 @@ public class ArtistRepository : IArtistRepository
         _context = context;
     }
 
-    public Task<IEnumerable<Artist>> ListAsync(Specification<Artist> specification)
+    public async Task<IEnumerable<Artist>> ListAsync(Specification<Artist> specification)
     {
         var queryResult = SpecificationEvaluator.Default.GetQuery(
             query: _context.Artists.AsQueryable(),
             specification: specification);
 
-        return queryResult.ToListAsync();
+        return await queryResult.ToListAsync();
     }
 }
