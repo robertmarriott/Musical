@@ -14,7 +14,8 @@ public static class ServiceCollectionExtensions
         services.AddDbContext<MusicalContext>(options =>
             options.UseSqlite(configuration.GetConnectionString("DefaultConnection")));
 
-        services.AddScoped<IArtistRepository, ArtistRepository>();
+        //services.AddScoped<IArtistRepository, ArtistRepository>();
+        services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
         return services;
     }
